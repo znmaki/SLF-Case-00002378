@@ -1,0 +1,5 @@
+<apex:page standardController="Invoice2__c" extensions="EscalInvoiceSalesCommision" action="{!generateInvoiceSalesCommision}">
+    <apex:form>
+        <apex:inputHidden value="{!Invoice2__c.Id}" />
+    </apex:form>
+</apex:page>

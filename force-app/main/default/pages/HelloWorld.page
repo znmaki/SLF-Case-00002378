@@ -1,0 +1,7 @@
+<apex:page>
+    <div style="display: flex;flex-direction: column;align-items: center;">
+        <h1 style="font-weight: bold; font-size: 2rem;color: rgba(38, 103, 74, 1)">Hello World!</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/2560px-Salesforce.com_logo.svg.png"
+            alt="logo salesforce" style="width: 10%;"/>
+    </div>
+</apex:page>

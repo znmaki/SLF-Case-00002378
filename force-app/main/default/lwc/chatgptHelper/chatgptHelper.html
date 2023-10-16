@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="ChatGTP Helper" icon-name="standard:account" variant="base">
+        <div class="container">
+            <!-- <div>{oppName}</div> -->
+            <div class="chat-container">              
+                <div class="chat__history">
+                    <template for:each={conversation} for:item="msg">
+                        <div key={msg.id} class="chat_for-each">
+                            {msg.content}
+                        </div>
+                    </template>
+
+                    <template if:true={isLoading}>
+                        <div class="slds-is-relative slds-m-around_medium center">
+                            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <!-- <lightning-input type="string" value={question} onchange={handleOnChange}></lightning-input> -->
+            <div class="prompt-container">
+                <div class="input-container">         
+                    <lightning-input 
+                        type="text" 
+                        placeholder="Send a message" 
+                        class="custom-label-hidden input__question" 
+                        value={userMessage}
+                        onchange={handleMessageChange}
+                        disabled={disableInput}
+                        >
+                    </lightning-input>
+    
+                    <lightning-button label="Enviar" title="Primary action" class="btn-send" onclick={callGenerateChatResponse}></lightning-button>
+                </div>
+
+                <div class="prompts__recomend">
+                    <div class="prompts__type-object">
+                        <lightning-select
+                        label="Object Type: "
+                        name="objects"
+                        value={selectedObject} 
+                        options={options}
+                        onchange={handleChange}>
+                        </lightning-select>
+                    </div>
+                    <div class="prompts__predefined">
+                        <template if:true={listPromptsOpp}>
+                            <template if:true={isOpportunityPrompt}>                    
+                                <template for:each={arrPromptsOpp} for:item="prompt">
+                                    <lightning-button key={prompt.Id} label={prompt.Prompt__c} data-id={prompt.Prompt__c} onclick={callPredefinedPrompt}></lightning-button>
+                                </template>                                               
+                            </template>
+                        </template>
+                        <template if:true={listPromptsLead}>
+                            <template if:true={isLeadPrompt}>
+                                <template for:each={arrPromptsLead} for:item="prompt">
+                                    <lightning-button key={prompt.Id} label={prompt.Prompt__c} data-id={prompt.Prompt__c} onclick={callPredefinedPrompt}></lightning-button>
+                                </template>                    
+                            </template>
+                        </template>
+                        <template if:true={listPromptsCon}>
+                            <template if:true={isContactPrompt}>                    
+                                <template for:each={arrPromptsCon} for:item="prompt">
+                                    <lightning-button key={prompt.Id} label={prompt.Prompt__c} data-id={prompt.Prompt__c} onclick={callPredefinedPrompt}></lightning-button>
+                                </template>               
+                            </template>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </lightning-card>
+</template>

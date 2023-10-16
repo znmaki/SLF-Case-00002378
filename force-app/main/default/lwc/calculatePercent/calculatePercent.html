@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Calculadora de Porcentaje">
+        <div>
+            <lightning-input label="Valor Numérico" type="number" step="0.01" onchange={handleInputChange}></lightning-input>
+            <lightning-combobox label="Porcentaje" value={selectedPercentage} options={percentageOptions} onchange={handlePercentageChange}></lightning-combobox>
+            <lightning-button label="Calcular" onclick={calculatePercentage}></lightning-button>
+        </div>
+        <div>
+            <p>Resultado: {result}</p>
+        </div>
+    </lightning-card>
+</template>

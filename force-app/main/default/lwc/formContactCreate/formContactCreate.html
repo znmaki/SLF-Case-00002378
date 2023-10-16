@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Create Contact">
+        <lightning-record-edit-form object-api-name={objectApiName} onsuccess={handleSuccess} fields={fields}>
+
+            <div class="section-2">
+                <lightning-input-field field-name={firstName} class="text-label"></lightning-input-field>
+                <lightning-input-field field-name={lastName} class="text-label"></lightning-input-field>
+            </div>
+            <div class="section-2">
+                <lightning-input-field field-name={companyName} class="text-label"></lightning-input-field>
+                <lightning-input-field field-name={phone} class="text-label"></lightning-input-field>
+            </div>
+            <lightning-input-field field-name={email} class="w-50 text-label"></lightning-input-field>
+            <lightning-input-field field-name={description} class="textarea text-label"></lightning-input-field>
+
+            <div class="section-btn">
+                <lightning-button variant="brand" label="Submit" type="submit" name="submit" class="submit-btn"></lightning-button>
+            </div>
+
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

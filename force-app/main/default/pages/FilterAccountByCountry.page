@@ -1,0 +1,19 @@
+<apex:page controller="AccountFilterController">
+    <apex:form>
+        <apex:pageBlock>
+            <apex:pageBlockSection>
+                <apex:selectList value="{!selectedCountry}" size="1">
+                    <apex:selectOptions value="{!countryOptions}" />
+                </apex:selectList>
+                <apex:commandButton value="Filtrar" action="{!filterAccounts}" rerender="accountTable" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockTable value="{!accountList}" var="acc" id="accountTable">
+                <apex:column value="{!acc.Name}" headerValue="Name"/>
+                <apex:column value="{!acc.Phone}" headerValue="Phone"/>
+                <apex:column value="{!acc.BillingCountry}" headerValue="Billing Address"/>
+                <apex:column value="{!acc.ShippingStreet}" headerValue="Shipping Address"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

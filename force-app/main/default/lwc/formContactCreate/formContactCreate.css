@@ -1,0 +1,25 @@
+.section-2 {
+    display: flex;
+}
+
+.w-50 {
+    width: 49.4%;
+}
+
+.text-label {
+    -webkit-text-fill-color: #26674a;
+    font-weight: bold;
+}
+
+.textarea {
+    --slds-c-textarea-sizing-min-height: 6rem;    
+}
+
+.section-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-btn {
+    margin-right: 0.2rem;
+}
